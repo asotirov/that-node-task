@@ -9,11 +9,7 @@
 - **DELETE** `/db` - deletes all items in the database. The result is the count of the items that were present in the database and a status code of **200** `{ Result: <Count> }`
 - **DELETE** `/db/:id` - deletes an item by id. The result is the deleted item and a status code of **200** `{ Result: {deletedItem} }`
 
-The QA has made sure that there are tests for the endpoints. In order to complete the task you need to complete the application, so all tests pass.
-
-Part of the database API that is used has been implemented (`Db.js`). There are remaining parts of it that haven't been implemented and return an error if invoked. For details look below.
-
-Some methods that wire the routes have been implemented fully (`routing.js`). The remaining are wired correctly but are note connected with the database API. For more details look below.
+The QA has made sure that there are tests for the endpoints.
 
 ##Your job
 
@@ -39,4 +35,12 @@ This file contains the database api. It uses a simple file to persist the data. 
 
 ###routes.js
 routes.js contains the initialization of the [http://expressjs.com/guide.html](http://expressjs.com/guide.html "express") routes - the skeleton of the server Api. The routes resolve parameters, call methods of the database api, handle possible errors and send the appropriate responses to the user. You can see how `get('/db/:id')` is implemented, for an example.
+
+###Starting state
+ 
+> The routes that handle **reading** items are fully implemented and their tests are passing. 
+
+> The **create** item route is also implemented, but the tests show that there is a bug. You will need to check which assertions are failing, and fix the implementation. 
+
+> All other routes are **not implemented**.
 
