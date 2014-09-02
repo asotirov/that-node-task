@@ -9,7 +9,8 @@
         "node-uuid": "*",
         "request": "*",
         "mocha": "*",
-        "chai": "*"
+        "chai": "*",
+        "node.extend": "*"
 	},
     "main": "app.js",
 	"private": true

@@ -139,6 +139,14 @@ Db.prototype.readItems = function(done) {
     });
 }
 
+Db.prototype.clear = function(done){
+    fs.writeFile(this.filename, JSON.stringify({
+        data: []
+    }), {
+        flag: 'w+'
+    }, done);
+}
+
 /**
  * Returns the item from the data array (if found) that has the specified id. Returns null if the item is not found.
  * @param id - id of the item to find

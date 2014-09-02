@@ -18,6 +18,15 @@ Server.prototype.initialize = function (){
     app.use(logRequest);
     app.get('/status', function(req, res){
         res.status(200).send('Working!');
+    });
+    app.delete('/db/clear', function(req, res){
+        db.clear(function(err) {
+            if(err){
+                next(err);
+            } else {
+                res.status(200).send('Database cleared!');
+            }
+        });
     })
     routing.setup(app);
     app.use(logErrors)
@@ -37,7 +46,7 @@ Server.prototype.start = function() {
 }
 
 function logRequest(req,res,next){
-    console.log(req.url);
+    console.log(req.method + ": " + req.url);
     next();
 }
 
@@ -50,15 +59,11 @@ function errorHandler(err, req, res, next) {
     res.status(500).send({
         Error: err
     });
-    if(err.domain) {
-        //you should think about gracefully stopping & respawning your server
-        //since an unhandled error might put your application into an unknown state
-    }
 }
 
 function notFound(req, res, next) {
     res.status(404).send({
-        Error: 'Endpoint not found.'
+        Error: 'Endpoint not found: ' + req.url
     });
 }
 
