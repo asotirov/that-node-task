@@ -18,7 +18,7 @@ Db.prototype.initialize = function(done){
     })
 };
 
-Db.prototype.add = function(item, done){
+Db.prototype.addItem = function(item, done){
     var self = this;
 
     if(typeof item !== 'object') {
@@ -63,26 +63,27 @@ Db.prototype.getAll = function(done){
  * @param id
  * @param done
  */
-Db.prototype.getById = function(id, done){
+Db.prototype.getById = function(id, done) {
     this.readItems(function(err, data) {
         if(err){
             return done(err);
         }
         var item = findById(id, data);
         if(!item) {
-            done(new Error('Item not found'));
+            done('Item not found');
         }
         done(null, item);
     });
 };
 
 /**
- * Deletes an item by id. Callbacks with the new state of the item or an error if the item wasn't found. See getById
+ * Deletes an item by id. Callbacks with the new state of the item or an error if the item wasn't found.
  * @param id
  * @param item - item that will update the existing item. Id is preserved.
  * @param done
  */
 Db.prototype.updateById = function(id, item, done){
+    //See Db.prototype.getById
     done('Method updateById in Db.js not implemented');
 };
 
