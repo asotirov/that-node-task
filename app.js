@@ -1,5 +1,5 @@
 'use strict';
-var Server = require('./Server');
+var Server = require('./server');
 var Db = require('./Db');
 
 (function() {
