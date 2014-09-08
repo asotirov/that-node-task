@@ -77,7 +77,7 @@ Db.prototype.getById = function(id, done) {
 };
 
 /**
- * Deletes an item by id. Callbacks with the new state of the item or an error if the item wasn't found.
+ * Updates an item by id. Callbacks with the new state of the item or an error if the item wasn't found.
  * @param id
  * @param item - item that will update the existing item. Id is preserved.
  * @param done
