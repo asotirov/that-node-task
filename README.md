@@ -26,6 +26,9 @@ In order to test some requests against the running app, you can use[ Postman for
 > https://www.getpostman.com/collections/b21cdfe5cf12474c8687`
 
 ###Running the tests
+
+**Important** - you have to run the server first with `node app.js` before running the tests with `mocha`.
+
 To run the tests you need to have installed node. You should run `npm install -g mocha` to install the mocha framework globally. After that, running `mocha` in the app root directory should execute the tests.
 
 > If `mocha` isn't recognized make sure the global npm folder is added to the PATH variable.
